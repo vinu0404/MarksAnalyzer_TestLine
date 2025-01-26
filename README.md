@@ -45,4 +45,4 @@ This Flask application allows users to upload a JSON link, process the data into
 
 ![Average Accurcy by Title-Topic based on Correct ,  Incorrect and Speed ](images/5.png)
 
-![Average Accurcy by Title-Topic based on Correct ,  Incorrect and Speed ](images\5.png)
+![Average Accurcy by Title-Topic based on Correct ,  Incorrect and Speed ](images/6.png)

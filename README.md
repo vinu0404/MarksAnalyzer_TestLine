@@ -26,7 +26,7 @@ This Flask application allows users to upload a JSON link, process the data into
   
 ## Installation & Run:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/vinu0404/MarksAnalyzer_TestLine
    cd flask-json-visualization
    pip install -r requirements.txt
    run python app.py
@@ -34,14 +34,14 @@ This Flask application allows users to upload a JSON link, process the data into
    ```
   
 ## Visulization:
-![Incorrect and Correct Answers by Topic](images\1.png)
+![Incorrect and Correct Answers by Topic](images/1.png)
 
-![Initial Mistakes and Mistakes Corrected by Topic](images\2.png)
+![Initial Mistakes and Mistakes Corrected by Topic](images/2.png)
 
-![Score by Topic](images\3.png)
+![Score by Topic](images/3.png)
 
-![Better Than by Topic](images\4.png)
+![Better Than by Topic](images/4.png)
+
+![Average Accurcy by Title-Topic based on Correct ,  Incorrect and Speed ](images/5.png)
 
 ![Average Accurcy by Title-Topic based on Correct ,  Incorrect and Speed ](images\5.png)
-
-![Recommend topics to study](images/6.png)

@@ -2,7 +2,6 @@
 
 ## Overview
 This Flask application allows users to upload a JSON link, process the data into a DataFrame, and generate insightful visualizations based on quiz-related metrics. The app dynamically renders six plots in the browser, providing an interactive way to analyze quiz performance data.
-![Video link]()
 
 ## Features
 - **JSON Data Upload**: Accept a JSON link as input.

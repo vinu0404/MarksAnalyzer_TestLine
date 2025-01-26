@@ -7,7 +7,7 @@ This Flask application allows users to upload a JSON link, process the data into
 ## Features
 - **JSON Data Upload**: Accept a JSON link as input.
 - **Data Transformation**: Converts JSON data into a Pandas DataFrame.
-- **Five Visualizations**:
+- **Six Visualizations**:
   1. Incorrect and Correct Answers by Topic
   2. Initial Mistakes and Mistakes Corrected by Topic
   3. Score by Topic

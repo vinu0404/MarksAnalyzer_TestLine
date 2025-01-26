@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Data Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Data Analysis</h1>
+    <form method="POST">
+        <label for="json_url">Enter JSON URL:</label>
+        <input type="url" id="json_url" name="json_url" required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if plots %}
+        <h2>Generated Plots</h2>
+        {% for plot in plots %}
+            <img src="data:image/png;base64,{{ plot }}" alt="Plot">
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

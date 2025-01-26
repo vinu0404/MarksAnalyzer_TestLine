@@ -12,10 +12,10 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        # Get the JSON URL from the form
+        
         json_url = request.form.get("json_url")
         
-        # Fetch JSON data
+        
         try:
             response = requests.get(json_url)
             response.raise_for_status()
@@ -136,6 +136,52 @@ def generate_plots(df):
 
     # Show the plot
     
+    plots.append(encode_plot_as_base64())
+
+    
+
+
+
+
+    """
+    Function to analyze quiz performance and recommend topics to study.
+    Visualizes topics based on correct answers, incorrect answers, and score.
+
+    Parameters:
+        df (pd.DataFrame): DataFrame containing quiz performance data with 
+                           columns 'quiz_topic', 'correct_answers', 'incorrect_answers', and 'score'.
+
+    Returns:
+        pd.DataFrame: DataFrame summarizing topic performance and recommended priorities.
+    """
+    # Ensure required columns are numeric
+    df['correct_answers'] = pd.to_numeric(df['correct_answers'], errors='coerce')
+    df['incorrect_answers'] = pd.to_numeric(df['incorrect_answers'], errors='coerce')
+    df['score'] = pd.to_numeric(df['score'], errors='coerce')
+    
+    # Drop rows with missing values
+    df = df.dropna(subset=['quiz_topic', 'correct_answers', 'incorrect_answers', 'score'])
+    
+    # Calculate recommendation score
+    # Higher incorrect answers and lower score will result in higher priority for study
+    df['study_priority'] = df['incorrect_answers'] - df['correct_answers'] + (100 - df['score'])
+    
+    # Normalize the study priority to scale between 0 and 100
+    df['normalized_priority'] = (df['study_priority'] - df['study_priority'].min()) / \
+                                (df['study_priority'].max() - df['study_priority'].min()) * 100
+
+    # Sort by priority
+    priority_df = df[['quiz_topic', 'correct_answers', 'incorrect_answers', 'score', 'normalized_priority']] \
+        .sort_values(by='normalized_priority', ascending=False)
+
+    # Visualization
+    plt.figure(figsize=(12, 6))
+    sns.barplot(x='quiz_topic', y='normalized_priority', data=priority_df, palette='coolwarm')
+    plt.title('Recommended Study Topics by Priority')
+    plt.xlabel('Quiz Topic')
+    plt.ylabel('Study Priority (Higher = Needs More Attention)')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
     plots.append(encode_plot_as_base64())
 
     

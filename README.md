@@ -12,6 +12,7 @@ This Flask application allows users to upload a JSON link, process the data into
   3. Score by Topic
   4. Better Than by Topic
   5. Average Accurcy by Title-Topic based on Correct ,  Incorrect and Speed 
+  6. Recommend topics to study
 - **Dynamic Web Display**: Uses Flask to render plots on a web page.
 - **Base64 Encoding**: Converts Matplotlib plots into images for seamless integration with HTML.
 
@@ -42,3 +43,5 @@ This Flask application allows users to upload a JSON link, process the data into
 ![Better Than by Topic](images\4.png)
 
 ![Average Accurcy by Title-Topic based on Correct ,  Incorrect and Speed ](images\5.png)
+
+![Recommend topics to study](images/6.png)
